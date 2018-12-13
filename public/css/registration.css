@@ -1,0 +1,31 @@
+.registration-form{
+	width: 600px;
+}
+
+.alert{
+	width: 600px;
+}
+
+.registration-button{
+	width: 600px;
+}
+
+@media screen and (max-width: 800px){
+	.registration-form{
+		width: 400px;
+	}
+	
+	.registration-button{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 450px){
+	.registration-form{
+		width: 80%;
+	}
+	
+	.registration-button{
+		width:100%;
+	}
+}

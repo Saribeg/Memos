@@ -1,0 +1,58 @@
+extends layouts/layout.pug
+
+block title
+	<title>Memos</title>
+
+block content
+
+	<div class="logo">
+		<img src="../img/logo.png" alt="Image Not Found" class="logo__img">
+	</div>
+
+	<div class="site-description">
+		<p> <span class="colored red">Зберігайте </span><span class="colored  blue">яскраві </span> <span class="colored orange">нотатки </span> <span class="colored green">зі смаком </span><span class="colored violet">в надійному місці </span></p>
+	</div>
+
+	include messages.pug
+
+	<form class="sign-in-form" method="POST" action="/users/login">
+		<div class="form-row">
+			<div class="col-sm-6">
+				<input type="text" class="form-control" placeholder="Введіть Ваш логін" name="username" required>
+			</div>
+			<div class="col-sm-6">
+				<input type="password" class="form-control" placeholder="Введіть Ваш пароль" name="password" required>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-success sign-in-button">Увійти</button>
+	</form>
+
+	<a href="/users/register" class="registration-link">Зареєструватись</a>
+
+//-
+	div.container
+		div.logo
+			img.logo__img(src="../img/logo.png", alt="Image Not Found" )
+
+	div.site-description
+		p
+			span.colored.red Зберігайте 
+			span.colored.blue яскраві 
+			span.colored.orange нотатки 
+			span.colored.green зі смаком 
+			span.colored.violet в надійному місці 
+
+	form.sign-in-form(method="POST" action="/login")
+		div.form-row
+			div.col-sm-6
+				input.form-control(type="email", placeholder="Введіть Ваш email", name="userEmail", required)
+			div.col-sm-6
+				input.form-control(type="password", placeholder="Введіть пароль", name="userPassword", required)
+			button.btn.btn-success.sign-in-button(type="submit") Увійти
+
+	a.registration-link(href="/register")
+
+
+
+
+

@@ -1,0 +1,118 @@
+body{
+	position: relative;
+	width: 100%;
+}
+
+body::after{
+	content: "";
+  background: url(../img/home-bgc.jpg);
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+	background-size: cover;
+	background-position: center center;
+}
+
+.container{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.site-description{
+	text-align: center;
+	word-wrap: wrap;
+}
+
+.sign-in-form{
+	width: 600px;
+}
+
+.sign-in-button{
+	margin-top: 40px;
+	width: 600px;
+}
+
+.site-footer__text{
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	text-align: center;
+}
+
+.colored{
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.red{
+	color: #f24a3b;
+}
+
+.blue{
+	color: #2e7bf9;
+}
+
+.orange{
+	color: #fbbc04;
+}
+
+.green{
+	color: #28a745;
+}
+
+.violet{
+	color: #ad54fa;
+}
+
+@media screen and (max-width: 800px){
+	.sign-in-form{
+		width: 400px;
+	}
+	
+	.sign-in-button{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 575px){
+
+	.sign-in-form{
+		width: 80%;
+	}
+
+	.form-control{
+		margin-top: 20px;
+	}
+
+	.sign-in-button{
+		margin-top: 20px;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 320px){
+
+	.logo__img{
+		width: 200px;
+		height: 61px;
+	}
+}
+
+@media screen and (max-height: 550px){
+	.container{
+		height: 550px;
+	}
+}
+
+
+
