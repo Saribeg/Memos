@@ -18,6 +18,7 @@ const db = mongoose.connection;
 
 const routes = require('./routes/index');
 const users = require('./routes/users');
+const memos = require('./routes/memos');
 
 // Инициализируем наше приложение
 const app = express();
@@ -80,6 +81,7 @@ app.use(function (req, res, next) {
 //Использование роутов
 app.use('/', routes);
 app.use('/users', users);
+app.use('/memos', memos);
 
 // Устанавливаем порт и запускаем сервер
 app.set('port', (process.env.PORT || 3000));
