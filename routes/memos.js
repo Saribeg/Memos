@@ -8,8 +8,8 @@ const User = require('../models/user');
 const Memo = require('../models/memo');
 
 //Функция для проверки залогинен пользователь или нет
-function ensureAuthenticated(req, res, next){
-	if(req.isAuthenticated()){
+function ensureAuthenticated(req, res, next) {
+	if (req.isAuthenticated()) {
 		return next();
 	} else {
 		res.redirect('/users/login');
@@ -21,8 +21,8 @@ router.get('/memo', ensureAuthenticated, async (req, res) => {
 	let memo1 = new Memo({
 		memoid: shortid.generate(),
 		username: req.user.username,
-		memoTitle: "Я перша нотатка",
-		memoDescription: "Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, \"Тут іде текст. Тут іде текст.\"",
+		memoTitle: req.body.memoTitle,
+		memoDescription: req.body.memoDescription,
 		memoList: [
 			"Перший List-Item",
 			"Другий List-Item",
@@ -30,12 +30,26 @@ router.get('/memo', ensureAuthenticated, async (req, res) => {
 			"Четвертий List-Item",
 			"П'ятий List-Item"
 		],
-		memoLinks: [
-			{link: "https://pugjs.org/language/iteration.html",linkText: "Pug"},
-			{link:"https://metanit.com/web/nodejs/2.6.php", linkText:"NodeJS"},
-			{link:"https://uk.lipsum.com/", linkText:"lipsum"},
-			{link:"https://www.google.com", linkText:"google"},
-			{link:"https://fontawesome.com/", linkText:"fontawesome"},
+		memoLinks: [{
+				link: "https://pugjs.org/language/iteration.html",
+				linkText: "Pug"
+			},
+			{
+				link: "https://metanit.com/web/nodejs/2.6.php",
+				linkText: "NodeJS"
+			},
+			{
+				link: "https://uk.lipsum.com/",
+				linkText: "lipsum"
+			},
+			{
+				link: "https://www.google.com",
+				linkText: "google"
+			},
+			{
+				link: "https://fontawesome.com/",
+				linkText: "fontawesome"
+			},
 		],
 		memoColor: "memo-green",
 		memoDate: "01.12.2018"
@@ -62,12 +76,26 @@ router.get('/memo', ensureAuthenticated, async (req, res) => {
 		username: req.user.username,
 		memoTitle: "Також і третя нотатка",
 		memoDescription: "Цей трактат з теорії етики був дуже популярним в епоху Відродження. Перший рядок Lorem Ipsum, \"Lorem ipsum dolor sit amet...\" походить з одного з рядків розділу 1.10.32.",
-		memoLinks: [
-			{link: "https://pugjs.org/language/iteration.html",linkText: "Чому ми ним користуємось?"},
-			{link:"https://metanit.com/web/nodejs/2.6.php", linkText:"Звідки він походить?"},
-			{link:"https://uk.lipsum.com/", linkText:"Де собі взяти трохи?"},
-			{link:"https://www.google.com", linkText:"Переклад Х.Рекема англійською, 1914"},
-			{link:"https://fontawesome.com/", linkText:"Класичний текст"},
+		memoLinks: [{
+				link: "https://pugjs.org/language/iteration.html",
+				linkText: "Чому ми ним користуємось?"
+			},
+			{
+				link: "https://metanit.com/web/nodejs/2.6.php",
+				linkText: "Звідки він походить?"
+			},
+			{
+				link: "https://uk.lipsum.com/",
+				linkText: "Де собі взяти трохи?"
+			},
+			{
+				link: "https://www.google.com",
+				linkText: "Переклад Х.Рекема англійською, 1914"
+			},
+			{
+				link: "https://fontawesome.com/",
+				linkText: "Класичний текст"
+			},
 		],
 		memoColor: "memo-orange",
 		memoDate: "03.12.2018"
@@ -117,12 +145,26 @@ router.get('/memo', ensureAuthenticated, async (req, res) => {
 			"Ггггггггг",
 			"Ддддддддд"
 		],
-		memoLinks: [
-			{link: "https://pugjs.org/language/iteration.html",linkText: "1111111111"},
-			{link:"https://metanit.com/web/nodejs/2.6.php", linkText:"2222222222"},
-			{link:"https://uk.lipsum.com/", linkText:"3333333333"},
-			{link:"https://www.google.com", linkText:"4444444444"},
-			{link:"https://fontawesome.com/", linkText:"5555555555"},
+		memoLinks: [{
+				link: "https://pugjs.org/language/iteration.html",
+				linkText: "1111111111"
+			},
+			{
+				link: "https://metanit.com/web/nodejs/2.6.php",
+				linkText: "2222222222"
+			},
+			{
+				link: "https://uk.lipsum.com/",
+				linkText: "3333333333"
+			},
+			{
+				link: "https://www.google.com",
+				linkText: "4444444444"
+			},
+			{
+				link: "https://fontawesome.com/",
+				linkText: "5555555555"
+			},
 		],
 		memoColor: "memo-orange",
 		memoDate: "10.12.2018"
@@ -147,53 +189,67 @@ router.get('/memo', ensureAuthenticated, async (req, res) => {
 		username: req.user.username,
 		memoTitle: "Якщо ви збираєтесь використовувати Lorem Ipsum",
 		memoDescription: "більш-менш нормальне розподілення літер на відміну від більш-менш нормальне розподілення літер на відміну від більш-менш нормальне розподілення літер на відміну від",
-		memoLinks: [
-			{link: "https://pugjs.org/language/iteration.html",linkText: "Ааааааааа"},
-			{link:"https://metanit.com/web/nodejs/2.6.php", linkText:"Ббббббббб"},
-			{link:"https://uk.lipsum.com/", linkText:"Ввввввввв"},
-			{link:"https://www.google.com", linkText:"Ггггггггг"},
-			{link:"https://fontawesome.com/", linkText:"Ддддддддд"},
+		memoLinks: [{
+				link: "https://pugjs.org/language/iteration.html",
+				linkText: "Ааааааааа"
+			},
+			{
+				link: "https://metanit.com/web/nodejs/2.6.php",
+				linkText: "Ббббббббб"
+			},
+			{
+				link: "https://uk.lipsum.com/",
+				linkText: "Ввввввввв"
+			},
+			{
+				link: "https://www.google.com",
+				linkText: "Ггггггггг"
+			},
+			{
+				link: "https://fontawesome.com/",
+				linkText: "Ддддддддд"
+			},
 		],
 	});
 
-	await memo1.save( (err) => {
-		if(err) return console.log(err);
+	await memo1.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo2.save( (err) => {
-		if(err) return console.log(err);
+	await memo2.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo3.save( (err) => {
-		if(err) return console.log(err);
+	await memo3.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo4.save( (err) => {
-		if(err) return console.log(err);
+	await memo4.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo5.save( (err) => {
-		if(err) return console.log(err);
+	await memo5.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo6.save( (err) => {
-		if(err) return console.log(err);
+	await memo6.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo7.save( (err) => {
-		if(err) return console.log(err);
+	await memo7.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo8.save( (err) => {
-		if(err) return console.log(err);
+	await memo8.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo9.save( (err) => {
-		if(err) return console.log(err);
+	await memo9.save((err) => {
+		if (err) return console.log(err);
 	});
 
-	await memo10.save( (err) => {
-		if(err) return console.log(err);
+	await memo10.save((err) => {
+		if (err) return console.log(err);
 	});
 
 	//let memo1str = JSON.stringify(memo1, "", 2);
@@ -207,5 +263,28 @@ router.get('/memo', ensureAuthenticated, async (req, res) => {
 
 });
 
-module.exports = router;
+router.post('/create-memo', ensureAuthenticated, async (req, res) => {
 
+	let userMemo = new Memo({
+		memoid: shortid.generate(),
+		username: req.user.username,
+		memoTitle: req.body.title,
+		memoDescription: req.body.description,
+		memoDate: req.body.date
+	});
+
+	await userMemo.save((err) => {
+		if (err) return console.log(err);
+	});
+
+	console.log(userMemo);
+	console.log(req.body.title);
+	res.redirect('/' + req.user.username)
+})
+
+// router.get('/create-memo', ensureAuthenticated, (req, res) => {
+// 	console.log(req.body.params);
+// 	res.redirect('/' + req.user.username)
+// })
+
+module.exports = router;

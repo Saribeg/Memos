@@ -9,7 +9,7 @@ router.get('/', ensureAuthenticated, (req, res) => {
 });
 
 router.get('/:user', ensureAuthenticated, (req, res) => {
-	//console.log(req.user);
+	// console.log(req.user);
 
 	Memo.find({username: req.user.username}, (err, docs) => {
 		if(err) return console.log(err);
@@ -33,9 +33,9 @@ router.get('/:user', ensureAuthenticated, (req, res) => {
 		//let userMemos = docs;
 		//res.send(userMemos);
 
-		docs.forEach(function(item, i, arr){
-			console.log(item['memoLinks'].length)
-		});
+		// docs.forEach(function(item, i, arr){
+		// 	console.log(item['memoLinks'].length)
+		// });
 		
 
 		res.render('index', {
