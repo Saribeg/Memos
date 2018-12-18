@@ -16,7 +16,7 @@ function ensureAuthenticated(req, res, next) {
 	}
 }
 
-router.get('/memo', ensureAuthenticated, async (req, res) => {
+/*router.get('/memo', ensureAuthenticated, async (req, res) => {
 
 	let memo1 = new Memo({
 		memoid: shortid.generate(),
@@ -261,7 +261,9 @@ router.get('/memo', ensureAuthenticated, async (req, res) => {
 
 	res.redirect('/' + req.user.username);
 
-});
+});*/
+
+// Создание новой заметки
 
 router.post('/create-memo', ensureAuthenticated, async (req, res) => {
 
@@ -270,21 +272,47 @@ router.post('/create-memo', ensureAuthenticated, async (req, res) => {
 		username: req.user.username,
 		memoTitle: req.body.title,
 		memoDescription: req.body.description,
-		memoDate: req.body.date
+		memoDate: req.body.date,
+		memoColor: req.body.color
 	});
 
 	await userMemo.save((err) => {
 		if (err) return console.log(err);
 	});
 
-	console.log(userMemo);
-	console.log(req.body.title);
-	res.redirect('/' + req.user.username)
-})
+	console.log(req.body);
 
-// router.get('/create-memo', ensureAuthenticated, (req, res) => {
-// 	console.log(req.body.params);
-// 	res.redirect('/' + req.user.username)
-// })
+	res.render('one_memo', {
+		userMemo: userMemo
+	});
+
+});
+
+// Выбор цвета заметки при создании
+
+// router.post('/change-modal-color/:chosenColorInModal', ensureAuthenticated, async (req, res) => {
+
+// 	let chosenColorInModal = req.params.chosenColorInModal;
+
+// });
+
+//Удаление заметки
+
+router.delete('/delete-memo/:memoid', ensureAuthenticated, async (req, res) => {
+
+	console.log(req.params.memoid);
+
+	let memoid = req.params.memoid;
+
+	Memo.findOneAndDelete({memoid:memoid}, (err, memo) => {
+
+		if(err) return console.log(err);
+
+		res.send(memoid);
+	})
+
+});
+
+
 
 module.exports = router;

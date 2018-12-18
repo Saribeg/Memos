@@ -3,6 +3,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header text-center">
+					<div id="chosen-color"></div>
 					<h4 class="modal-title w-100 font-weight-bold">Нова нотатка</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -11,24 +12,48 @@
 				<form method="POST" id="form">
 					<div class="modal-body mx-3">
 						<div class="md-form mb-3">
-							<label data-error="wrong" data-success="right" for="form34">Заголовок</label>
-							<input type="text" id="form34" class="form-control validate" name="title">
+							<label data-error="wrong" data-success="right" for="memoTitle">Заголовок</label>
+							<input type="text" id="memoTitle" class="form-control validate" name="title" required>
 						</div>
 						<div class="md-form mb-3">
-							<label data-error="wrong" data-success="right" for="form8">Текст замітки</label>
-							<textarea type="text" id="form8" class="md-textarea form-control" rows="4" name="description"></textarea>
+							<label data-error="wrong" data-success="right" for="memoDescription">Текст замітки</label>
+							<textarea type="text" id="memoDescription" class="md-textarea form-control" rows="4" name="description"></textarea>
 						</div>
 						<div class="md-form mb-2">
-							<label data-error="wrong" data-success="right" for="form32">Строк</label>
-							<input type="date" id="form32" class="form-control validate" name="date">
+							<label data-error="wrong" data-success="right" for="memoDate">Строк</label>
+							<input type="date" id="memoDate" class="form-control validate" name="date">
 						</div>
 					</div>
-					<div class="modal-footer d-flex">
-						<i class="fas fa-palette"></i>
-						<i class="fas fa-image"></i>
-						<button class="btn btn-success">Відмінити</button>
-						//- <button class="btn btn-success" id="save-memo">Зберегти</button>
-						<input type="submit" class="btn btn-success" id="save-memo" value="Зберегти">
+					<div class="modal-footer d-flex justify-content-between modal-actions">
+						<div class="modal-action-icons">
+							//- <a class="memo-colors-popover" data-toggle="popover" data-container="body" data-placement="right" type="button" data-html="true" href="#" id="change-color"><i class="fas fa-palette"></i></a>
+							<div class="memo-colors-wrapper" id="modal-memo-colors-wrapper">
+								<div class="modal-memo-colors">
+									<input type="radio" name="ColorGroup" value="memo-red" id="memo-red" class="radios"/>
+									<label class="memo-red" for="memo-red"><i class="fas fa-check"></i></label>
+									<input type="radio" name="ColorGroup" value="memo-green" id="memo-green" class="radios"/>
+									<label class="memo-green" for="memo-green"><i class="fas fa-check"></i></label>
+									<input type="radio" name="ColorGroup" value="memo-orange" id="memo-orange" class="radios"/>
+									<label class="memo-orange" for="memo-orange"><i class="fas fa-check"></i></label>
+									<input type="radio" name="ColorGroup" value="memo-blue" id="memo-blue" class="radios"/>
+									<label class="memo-blue" for="memo-blue"><i class="fas fa-check"></i></label>
+									<input type="radio" name="ColorGroup" value="memo-yellow" id="memo-yellow" class="radios"/>
+									<label class="memo-yellow" for="memo-yellow"><i class="fas fa-check"></i></label>
+									<input type="radio" name="ColorGroup" value="memo-violet" id="memo-violet" class="radios"/>
+									<label class="memo-violet" for="memo-violet"><i class="fas fa-check"></i></label>
+									<input type="radio" name="ColorGroup" value="memo-light-blue" id="memo-light-blue" class="radios"/>
+									<label class="memo-light-blue" for="memo-light-blue"><i class="fas fa-check"></i></label>
+									<input type="radio" name="ColorGroup" value="memo-brown" id="memo-brown" class="radios"/>
+									<label class="memo-brown" for="memo-brown"><i class="fas fa-check"></i></label>
+									<input type="radio" name="ColorGroup" value="memo-white" id="memo-white" class="radios"/>
+									<label class="memo-white" for="memo-white"><i class="fas fa-check"></i></label>
+								</div>
+							</div>
+							<a href="#" id="change-modal-color"><i class="fas fa-palette"></i></a>
+							<a href="#"><i class="fas fa-image"></i></a>
+						</div>
+						<button type="submit" class="btn btn-success" id="save-memo">Зберегти</button>
+						//- <input type="submit" class="btn btn-success" id="save-memo" value="Зберегти">
 					</div>
 				</form>
 			</div>
