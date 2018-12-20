@@ -19,7 +19,10 @@ let MemoSchema = mongoose.Schema({
 		type: String,
 		required: false
 	},
-	memoList: [{type: String, required: false}],
+	memoList: [
+		{listItem: {type: String}, listItemStatus: {type: String}, listItemId: {type: String}}
+		// {type: String, required: false}
+	],
 	memoLinks: [
 		{link: {type: String}, linkText: {type: String}}
 	],

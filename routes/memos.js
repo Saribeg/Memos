@@ -267,13 +267,21 @@ function ensureAuthenticated(req, res, next) {
 
 router.post('/create-memo', ensureAuthenticated, async (req, res) => {
 
+	let memoListItems = req.body.list;
+
+	for(let i=0;i<memoListItems.length;i++){
+		memoListItems[i].listItemId = shortid.generate();
+	}
+
 	let userMemo = new Memo({
 		memoid: shortid.generate(),
 		username: req.user.username,
 		memoTitle: req.body.title,
 		memoDescription: req.body.description,
 		memoDate: req.body.date,
-		memoColor: req.body.color
+		memoColor: req.body.color,
+		memoLinks: req.body.links,
+		memoList: memoListItems
 	});
 
 	await userMemo.save((err) => {
@@ -288,19 +296,12 @@ router.post('/create-memo', ensureAuthenticated, async (req, res) => {
 
 });
 
-// Выбор цвета заметки при создании
-
-// router.post('/change-modal-color/:chosenColorInModal', ensureAuthenticated, async (req, res) => {
-
-// 	let chosenColorInModal = req.params.chosenColorInModal;
-
-// });
 
 //Удаление заметки
 
 router.delete('/delete-memo/:memoid', ensureAuthenticated, async (req, res) => {
 
-	console.log(req.params.memoid);
+	// console.log(req.params.memoid);
 
 	let memoid = req.params.memoid;
 
@@ -310,6 +311,32 @@ router.delete('/delete-memo/:memoid', ensureAuthenticated, async (req, res) => {
 
 		res.send(memoid);
 	})
+
+});
+
+router.put('/update-memo/:memoid', ensureAuthenticated, async (req, res) => {
+
+	// let memoid = req.params.memoid;
+
+	Memo.find({memoid: req.params.memoid}, (err, docs) => {
+
+		if(err) return console.log(err);
+
+		console.log(docs);
+		console.log(typeof docs);
+		console.log(typeof docs[0].memoList);
+		console.log(docs.length);
+		
+
+		res.render('one_memo', {
+			userMemo: docs[0]
+		});
+
+
+		
+	});
+
+	// console.log(memoid);
 
 });
 

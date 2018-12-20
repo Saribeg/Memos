@@ -207,3 +207,9 @@
 	height: 40px;
 	border-radius: 10px;
 }
+
+.memo-link-add, .memo-link-delete, .memo-link-show, .memo-list-show, .memo-list-add, .memo-list-delete {
+	font-size: 20px;
+	cursor: pointer;
+}
+
