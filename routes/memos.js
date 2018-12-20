@@ -296,7 +296,6 @@ router.post('/create-memo', ensureAuthenticated, async (req, res) => {
 
 });
 
-
 //Удаление заметки
 
 router.delete('/delete-memo/:memoid', ensureAuthenticated, async (req, res) => {
@@ -339,7 +338,6 @@ router.put('/update-memo/:memoid', ensureAuthenticated, async (req, res) => {
 	// console.log(memoid);
 
 });
-
 
 
 module.exports = router;

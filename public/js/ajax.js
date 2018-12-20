@@ -12,6 +12,7 @@ $(document).ready(function(){
 		$('#chosen-color').removeClass().addClass(chosenColor);
 	});
 
+
 	// Тултип для кнопки добавления ссылки
 	$(function () {
 		$('.memo-link-add').tooltip();
@@ -256,12 +257,12 @@ $(document).ready(function(){
 	} else {
 		$("#form")[0].reportValidity();
 	}
+
 	};
 
 	$(document).on("click", "#save-memo", {}, createMemo);
 
 	// Удаление заметки
-
 	function deleteTheMemo(e){
 
 		let memoId = $(e.target).closest('.memo').attr('id');
@@ -282,6 +283,7 @@ $(document).ready(function(){
 			error: function(err) {
         console.log(err);
       }
+
 		});
 		
 	}
@@ -317,6 +319,7 @@ $(document).ready(function(){
             $(this).popover('hide');
         }
     });
+
 	});
 
 	// Редактирование заметки
