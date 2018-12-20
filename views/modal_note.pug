@@ -9,7 +9,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form method="POST" id="form">
+				<form method="POST" id="form" class="was-validated" name="memoCreateForm">
 					<div class="modal-body mx-3">
 						<div class="md-form mb-3">
 							<label data-error="wrong" data-success="right" for="memoTitle">Заголовок</label>
@@ -19,7 +19,21 @@
 							<label data-error="wrong" data-success="right" for="memoDescription">Текст замітки</label>
 							<textarea type="text" id="memoDescription" class="md-textarea form-control" rows="4" name="description"></textarea>
 						</div>
-						<div class="md-form mb-2">
+
+						<p class="link-heading">Додати лінки</p>
+						<div class="memo-links-wrapper">
+							
+						</div>
+
+						<p class="list-heading">Додати список</p>
+						<div class="memo-list-wrapper">
+							
+						</div>
+						<i class="fas fa-link mt-2 memo-link-show" data-toggle="tooltip" data-placement="right" title="Додати лінки"></i>
+						<i class="fas fa-list ml-3 memo-list-show" data-toggle="tooltip" data-placement="right" title="Додати список"></i>
+						<i class="fas fa-plus mt-2 memo-link-add" data-toggle="tooltip" data-placement="right" title="Додати лінки"></i>
+						<i class="fas fa-plus mt-2 memo-list-add" data-toggle="tooltip" data-placement="right" title="Додати в список"></i>
+						<div class="md-form mb-2 mt-3">
 							<label data-error="wrong" data-success="right" for="memoDate">Строк</label>
 							<input type="date" id="memoDate" class="form-control validate" name="date">
 						</div>
@@ -53,7 +67,6 @@
 							<a href="#"><i class="fas fa-image"></i></a>
 						</div>
 						<button type="submit" class="btn btn-success" id="save-memo">Зберегти</button>
-						//- <input type="submit" class="btn btn-success" id="save-memo" value="Зберегти">
 					</div>
 				</form>
 			</div>
