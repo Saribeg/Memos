@@ -1,3 +1,10 @@
+#nav-bar{
+	position: fixed;
+	z-index: 10000;
+	width: 100%;
+	background-color: #000000;
+}
+
 .nav{
 	position: relative;
 	width: 100%;
@@ -52,6 +59,10 @@
 }
 
 .logout{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	text-decoration: none;
 	color: #02af02;
 	transition: all 0.4s ease;
@@ -64,7 +75,7 @@
 .content{
 	position: relative;
 	width: 100%;
-	height: 700px;
+	min-height: 100vh;
 	border: 1px solid transparent;
 	padding: 5px;
 }
@@ -83,8 +94,8 @@
 	background-position: center center;
 }
 
-.memos{
-	margin-top: 10px;
+.memos, .archived-memos{
+	margin-top: 120px;
 	padding: 0 30px;
 	display: flex;
 	flex-wrap: wrap;
@@ -166,7 +177,7 @@
 	background: none;
 }
 
-.modal-memo-colors{
+.modal-memo-colors {
 	width: 120px;
 	height: 200px;
 	display: flex;
@@ -175,7 +186,7 @@
 	align-items: center;
 }
 
-.modal-memo-colors label {
+.modal-memo-colors label{
 	position: relative;
 	width: 30px;
 	height: 30px;
@@ -184,7 +195,7 @@
 	cursor: pointer;
 }
 
-.modal-memo-colors label .fas{
+.modal-memo-colors label .fas {
 	display: none;
 	position: absolute;
 	left: 50%;
@@ -198,7 +209,7 @@
 	display: none;
 }
 
-.modal-memo-colors input[type=radio]:checked + label .fas {
+.modal-memo-colors input[type=radio]:checked + label .fas{
 	display: block;
 }
 
@@ -212,4 +223,150 @@
 	font-size: 20px;
 	cursor: pointer;
 }
+
+/* .form-check-input:checked + .form-check-label{
+	text-decoration:line-through;
+	text-decoration-color: #515050;
+} */
+
+/*Checkbox*/
+
+.form-check{
+	padding-left: 0;
+}
+
+.hidden-box{
+	display: none;
+}
+
+.list-label{
+	margin: 0;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	cursor: pointer;
+}
+
+.list-label__box{
+	display: flex;
+  align-self: center;
+  position: relative;
+  height: 17px;
+  width: 17px;
+  margin: 0;
+  border: 1.5px solid #171818;
+  border-radius: 2px;
+	cursor: pointer;
+}
+
+.list-label__text{
+	display: flex;
+  align-self: center;
+  position: relative;
+  cursor: pointer;
+  padding: 2px 0 2px 10px;
+}
+
+.list-label__text:after{
+	content: '';
+  display: block;
+  width: 0%;
+  height: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+	left: 10px;
+  -webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+  transition: width 0.4s ease-in-out;
+}
+
+.hidden-box:checked + .list-label .list-label__box:after{
+	content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 5px;
+	height: 10px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.hidden-box:checked + .list-label .list-label__text:after{
+	width: 100%;
+}
+
+.memo-list-content[data-checked="true"]{
+	text-decoration: line-through;
+	background-color: #faf9f9;
+}
+
+#create-new-memo-modal, #go-to-main-page{
+	position: relative;
+}
+
+#create-new-memo-modal:before, #go-to-main-page:before{
+	content: attr(data-actualmemos);
+	display: block;
+	position: absolute;
+	top: -5px;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #ff9700;
+	color: #ffffff;
+	line-height: 30px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+#show-archived-memos{
+	position: relative;
+}
+
+#show-archived-memos:before{
+	content: attr(data-archivememos);
+	display: block;
+	position: absolute;
+	top: -5px;
+	right: 10px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #ff9700;
+	color: #ffffff;
+	line-height: 30px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+#user-name{
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
+	text-decoration: none;
+	color: #ffffff;
+	padding-left: 20px;
+}
+
+.nav-item:hover a #user-name{
+	color: #ff9700;
+}
+
+.nav-item:hover a{
+	text-decoration: none;
+}
+
+
+
+
+
+
 

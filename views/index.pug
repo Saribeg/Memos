@@ -15,39 +15,20 @@
 </head>
 <body>
 
-	<ul class="nav justify-content-around align-items-center">
-		<li class="nav-item">
-			<img src="../img/logo.png" alt="Image Not Found" class="logo__img">
-		</li>
-		<li class="nav-item">
-			<i class="fas fa-user"></i>
-			<p class="nav-icon-description">Профіль</p>
-		</li>
-		<li class="nav-item" data-toggle="modal" data-target="#myModal">
-			<i class="far fa-plus-square"></i>
-			<p class="nav-icon-description">Створити нотатку</p>
-		</li>
-		<li class="nav-item">
-			<i class="fas fa-archive"></i>
-			<p class="nav-icon-description">Архів нотаток</p>
-		</li>
-		<li class="nav-item">
-			<i class="fas fa-trash-alt"></i>
-			<p class="nav-icon-description">Корзина</p>
-		</li>
-		<li class="nav-item">
-			<a class="logout" href="/users/logout">
-				<i class="fas fa-sign-out-alt"></i>
-				<p class="nav-icon-description">Вийти</p>
-			</a>
-		</li>
-	</ul>
+include nav-bar.pug
 
 	<div class="content">
-	include modal_note.pug
+
+		<div class="container">
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document" id="show-modal-body">
+					
+				</div>
+			</div>
+		</div>
+	
 		<div class="memos" id="all-memos">
 		
-
 			each memo in userMemos
 				div(class=`card memo ${memo.memoColor}` id=`${memo.memoid}` style="min-width: 18rem; max-width: 35rem;")
 					if memoImage
@@ -60,12 +41,9 @@
 						<div class="card-body">
 						<h6 class="card-title card-links-heading">Список:</h6>
 						each listItem in memo.memoList
-							<div class="form-check">
-								input(class="form-check-input" type="checkbox" id=`${listItem.listItemId}`)
-								label(class="form-check-label" for=`${listItem.listItemId}`) #{listItem.listItem}
-								//- <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-								//- <label class="form-check-label" for="defaultCheck1"> #{listItem.listItem}</label>
-							</div>
+							div(class="form-check" data-replace=`${listItem.listItemStatus}`)
+								input(class="form-check-input hidden-box" type="checkbox" id=`${listItem.listItemId}` checked=listItem.listItemStatus)
+								label(class="form-check-label list-label" for=`${listItem.listItemId}`) <span class="list-label__box"></span> <span class="list-label__text"> #{listItem.listItem}</span>
 						</div>
 					if memo.memoLinks.length > 0
 						<div class="card-body card-links-container">
@@ -81,11 +59,9 @@
 						</div>
 					<div class="card-footer memo-actions-container">
 						<ul class="memo-actions-list">
-							<button class="memo-update" data-toggle="tooltip" data-placement="right" title="Редагувати нотатку"><li><i class="fas fa-pen"></i></li></button>
-							<button class="memo-delete" data-toggle="tooltip" data-placement="right" title="Видалити нотатку"><li><i class="fas fa-trash-alt"></i></li>
-							//- <button class="memo-change-color"><li><i class="fas fa-palette"></i></li>
-							<button class="memo-archive" data-toggle="tooltip" data-placement="right" title="Відправити нотатку в архів"><li><i class="fas fa-archive"></i></li>
-							//- <button class="memo-add-date"><li><i class="fas fa-clock"></i></li>
+							<button class="memo-update" data-toggle="modal" data-target="#myModal" title="Редагувати нотатку"><li><i class="fas fa-pen"></i></li></button>
+							<button class="memo-delete" title="Видалити нотатку"><li><i class="fas fa-trash-alt"></i></li>
+							<button class="memo-archive" title="Відправити нотатку в архів"><li><i class="fas fa-archive"></i></li>
 						</ul>
 					</div>
 
