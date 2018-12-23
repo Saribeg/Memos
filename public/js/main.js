@@ -188,6 +188,7 @@ $(document).ready(function(){
 		$('.memo-list-show').show();
 		$('.memo-links-wrapper').empty();
 		$('.memo-list-wrapper').empty();
+		chosenColor = 'memo-white';
 		n = 0;
 	}
 
@@ -585,7 +586,7 @@ $(document).ready(function(){
 	}
 
 
-	$(document).on('click', '#show-archived-memos', showArchivedMemos);
+	$(document).on('click', '#show-archived-memos, #show-archived-memos-mobile', showArchivedMemos);
 
 	// Удаление мемо из архива
 
@@ -665,9 +666,8 @@ $(document).ready(function(){
 				method: 'GET',
 				success: function (data) {
 
-					$('#create-new-memo-modal').attr('data-actualmemos', data.actualMemoQuantity);
-					$('#go-to-main-page').attr('data-actualmemos', data.actualMemoQuantity);
-					$('#show-archived-memos').attr('data-archivememos', data.archivedMemoQuantity);
+					$('#create-new-memo-modal, #go-to-main-page').attr('data-actualmemos', data.actualMemoQuantity);
+					$('#show-archived-memos, #show-archived-memos-mobile').attr('data-archivememos', data.archivedMemoQuantity);
 	
 				},
 				error: function(err) {
@@ -692,6 +692,16 @@ $(document).ready(function(){
 
 		$('#user-name').text(`For ${currentUserName}`);
 
+		// Меню для мобильных для главной страницы
+
+		$(document).on('click', '.burger-menu', function(e){
+			$('.hamburger').toggleClass('is-active');
+			$('#main-mobile-menu').toggle('slow');
+		})
+
+		// $('.burger-menu').toggle(function(){
+		// 	$('#main-mobile-menu').show(slow);
+		// });
 
 
 });

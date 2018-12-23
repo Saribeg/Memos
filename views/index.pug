@@ -9,6 +9,7 @@
 
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/hamburgers.css">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/colors.css">
 
@@ -21,7 +22,7 @@ include nav-bar.pug
 
 		<div class="container">
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document" id="show-modal-body">
+				<div class="modal-dialog modal-dialog-centered" role="document" id="show-modal-body">
 					
 				</div>
 			</div>
@@ -30,7 +31,7 @@ include nav-bar.pug
 		<div class="memos" id="all-memos">
 		
 			each memo in userMemos
-				div(class=`card memo ${memo.memoColor}` id=`${memo.memoid}` style="min-width: 18rem; max-width: 35rem;")
+				div(class=`card memo ${memo.memoColor}` id=`${memo.memoid}`)
 					if memoImage
 						<img class="card-img-top" src="../img/test001.jpg" alt="Card image cap">
 					<div class="card-body">
@@ -55,7 +56,7 @@ include nav-bar.pug
 						</div>
 					if memo.memoDate
 						<div class="card-footer memo-date">
-							<small>#{memo.memoDate}</small>
+							<small>Строк: #{memo.memoDate}</small>
 						</div>
 					<div class="card-footer memo-actions-container">
 						<ul class="memo-actions-list">

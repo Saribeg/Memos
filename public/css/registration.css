@@ -4,6 +4,7 @@
 
 .alert{
 	width: 600px;
+	margin: 0 auto;
 }
 
 .registration-button{
@@ -11,21 +12,18 @@
 }
 
 @media screen and (max-width: 800px){
-	.registration-form{
-		width: 400px;
-	}
-	
-	.registration-button{
+	.registration-form, .registration-button, .alert{
 		width: 400px;
 	}
 }
 
 @media screen and (max-width: 450px){
-	.registration-form{
+	.registration-form, .messages{
 		width: 80%;
+		word-wrap: break-word;
 	}
 	
-	.registration-button{
+	.registration-button, .alert{
 		width:100%;
 	}
 }
