@@ -49,15 +49,13 @@ router.post('/register', async (req, res) => {
 
 		const user = await User.findOne({ username: name });
       if (user) {
-				//res.send(user);
-				console.log('exist')
 				req.flash('error_msg', 'Такий логін вже існує! Логін повинен бути унікальним!');
         res.redirect('/users/register');
       }else{
 				User.createUser(newUser, (err, user) => {
 
 					if(err) throw err;
-					console.log(user);
+
 				});
 		
 				req.flash('success_msg', "Ви успішно зарееєструвались та можете увійти");

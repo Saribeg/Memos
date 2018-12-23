@@ -75,18 +75,15 @@ body::after{
 }
 
 @media screen and (max-width: 800px){
-	.sign-in-form{
+	.sign-in-form, .sign-in-button, .messages, .alert {
 		width: 400px;
 	}
 	
-	.sign-in-button{
-		width: 400px;
-	}
 }
 
 @media screen and (max-width: 575px){
 
-	.sign-in-form{
+	.sign-in-form, .alert{
 		width: 80%;
 	}
 

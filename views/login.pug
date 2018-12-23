@@ -29,29 +29,6 @@ block content
 
 	<a href="/users/register" class="registration-link">Зареєструватись</a>
 
-//-
-	div.container
-		div.logo
-			img.logo__img(src="../img/logo.png", alt="Image Not Found" )
-
-	div.site-description
-		p
-			span.colored.red Зберігайте 
-			span.colored.blue яскраві 
-			span.colored.orange нотатки 
-			span.colored.green зі смаком 
-			span.colored.violet в надійному місці 
-
-	form.sign-in-form(method="POST" action="/login")
-		div.form-row
-			div.col-sm-6
-				input.form-control(type="email", placeholder="Введіть Ваш email", name="userEmail", required)
-			div.col-sm-6
-				input.form-control(type="password", placeholder="Введіть пароль", name="userPassword", required)
-			button.btn.btn-success.sign-in-button(type="submit") Увійти
-
-	a.registration-link(href="/register")
-
 
 
 

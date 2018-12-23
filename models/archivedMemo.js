@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let MemoSchema = mongoose.Schema({
+let ArchivedMemoSchema = mongoose.Schema({
 	memoid:{
 		type: String,
 		required: true,
@@ -37,7 +37,8 @@ let MemoSchema = mongoose.Schema({
 		data: Buffer, 
 		contentType: String,
 		required: false
-	}
-});
+	},
+	versionKey: false
+}, {versionKey: false});
 
-let Memo = module.exports = mongoose.model('Memo', MemoSchema, 'memos');
+let archivedMemo = module.exports = mongoose.model('archivedMemo', ArchivedMemoSchema, 'archived-memo');

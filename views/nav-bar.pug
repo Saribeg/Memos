@@ -1,0 +1,48 @@
+<div id='nav-bar'>
+	<ul class="nav justify-content-around align-items-center">
+		<li class="nav-item" id='logo'>
+			<a href='/'>
+				<img src="../img/logo.png" alt="Image Not Found" class="logo__img"><br />
+				<span id='user-name'><span>
+			</a>
+		</li>
+		<li class="nav-item" id='create-new-memo-modal' data-toggle="modal" data-target="#myModal">
+			<i class="far fa-plus-square"></i>
+			<p class="nav-icon-description">Створити нотатку</p>
+		</li>
+		<li class="nav-item" id='show-archived-memos'>
+			<i class="fas fa-archive"></i>
+			<p class="nav-icon-description">Архів нотаток</p>
+		</li>
+		<li class="nav-item" id='logout'>
+			<a class="logout" href="/users/logout">
+				<i class="fas fa-sign-out-alt"></i>
+				<p class="nav-icon-description">Вийти</p>
+			</a>
+		</li>
+		<li class='burger-menu'>
+			<button class="hamburger hamburger--collapse" type="button">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+		</li>
+	</ul>
+	<div id="main-mobile-menu">
+		<ul class="main-mobile-menu-list">
+			<li class="mobile-nav-item" id='show-archived-memos-mobile'>
+				<i class="fas fa-archive"></i>
+				<p class="mobile-nav-icon-description">Архів нотаток</p>
+			</li>
+			<li class="mobile-nav-item" id='logout-mobile'>
+				<a class="logout-mobile" href="/users/logout">
+					<i class="fas fa-sign-out-alt"></i>
+					<p class="mobile-nav-icon-description">Вийти</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="progress">
+		<div class="progress-bar progress-bar-striped bg-success progress-bar-animated" id='progress-bar' role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	</div>
+</div>
