@@ -16,9 +16,9 @@ const database = require('./configs/db');
 mongoose.connect(database.url, { useNewUrlParser: true });
 const db = mongoose.connection;
 
-const routes = require('./routes/index');
-const users = require('./routes/users');
-const memos = require('./routes/memos');
+const routes = require('./app/routes/index');
+const users = require('./app/routes/users');
+const memos = require('./app/routes/memos');
 
 // Инициализируем наше приложение
 const app = express();
