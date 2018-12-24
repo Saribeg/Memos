@@ -13,7 +13,6 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 const database = require('./configs/db');
 
-
 mongoose.connect(database.url, { useNewUrlParser: true });
 const db = mongoose.connection;
 
