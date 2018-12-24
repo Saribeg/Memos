@@ -13,6 +13,7 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 const database = require('./configs/db');
 
+
 mongoose.connect(database.url, { useNewUrlParser: true });
 const db = mongoose.connection;
 
@@ -82,6 +83,7 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/memos', memos);
+
 
 // Устанавливаем порт и запускаем сервер
 app.set('port', (process.env.PORT || 3000));
