@@ -20,9 +20,7 @@ let UserSchema = mongoose.Schema({
 	},
 	email: {
 		type: String,
-		required: true,
-		index: true,
-		unique: true
+		required: true
 	}
 });
 
